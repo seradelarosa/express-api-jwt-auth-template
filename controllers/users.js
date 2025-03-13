@@ -18,6 +18,7 @@ router.get('/', verifyToken, async (req, res) => {
 
 router.get('/:userId', verifyToken, async (req, res) => {
     try {
+        console.log(req);
         // console.log(req);
         if (req.user._id !== req.params.userId) {
             return res.status(403).json({ err: 'keep out! unauthorized.' });

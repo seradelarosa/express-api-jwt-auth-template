@@ -20,7 +20,7 @@ router.post('/sign-up', async (req, res) => {
       username: req.body.username,
       hashedPassword: bcrypt.hashSync(req.body.password, saltRounds)
     });
-
+    // only include username and _id in the payload
     const payload = { username: user.username, _id: user._id };
     const token = jwt.sign({ payload }, process.env.JWT_SECRET);
 
